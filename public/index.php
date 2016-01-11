@@ -1,5 +1,7 @@
 <?php
 use Pimple\Container;
+use Application\Controller;
+use Application\Service;
 
 require_once '../vendor/autoload.php';
 require_once '../application/config.php';
@@ -11,5 +13,19 @@ $twig = new Twig_Environment($loader, array(
 ));
 
 $app = new Container();
+$app['config.storage'] = $DBFile;
+
+$app['service.storage'] = function ($app) {
+    $service = new Service\StorageService();
+    $service->setApp($app);
+    return $service;
+};
+$app['controller.data'] = function ($app) {
+    $controller = new Controller\DataController();
+    $controller->setApp($app);
+    $controller->setStorageService($app['service.storage']);
+    return $controller;
+};
+
 
 echo $twig->render('index.twig.html', array('name' => 'Fabien'));
