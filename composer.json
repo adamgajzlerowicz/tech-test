@@ -1,7 +1,8 @@
 {
     "name": "adamgajzlerowicz/tech-test",
     "require": {
-        "twig/twig": "^1.23"
+        "twig/twig": "^1.23",
+        "pimple/pimple": "^3.0"
     },
     "license": "MIT",
     "authors": [

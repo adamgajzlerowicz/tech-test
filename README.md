@@ -1,12 +1,5 @@
 # Sky Betting & Gaming Technical Test
 
-## Introduction
-
-Welcome to the Sky Betting & Gaming Technical Test!
-
-We hope that you find this exercise fun. There are no trick questions; we want to see your solution to a simple problem with well thought-out and well structured code.
-
-
 ## The Brief
 
 The aim of this exercise is to create a server-side form handler in the language of your choice, to load and save data from our supplied HTML form.
