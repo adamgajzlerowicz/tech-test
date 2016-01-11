@@ -1,0 +1,13 @@
+{
+    "name": "adamgajzlerowicz/tech-test",
+    "require": {
+        "twig/twig": "^1.23"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adam Gajzlerowicz",
+            "email": "nelf86@gmail.com"
+        }
+    ]
+}
