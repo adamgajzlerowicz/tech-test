@@ -1,5 +1,5 @@
 <?php
-namespace Application\Service;
+namespace Application\Services;
 
 class StorageService
 {
@@ -17,7 +17,7 @@ class StorageService
     }
 
     public function getData(){
+        $filePath = $this->app['config.storage'];
         return file_get_contents();
     }
-
 }

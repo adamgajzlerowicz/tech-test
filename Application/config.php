@@ -1,6 +1,5 @@
 <?php
 require_once('env.php');
-
 if($debug){
     error_reporting(E_ALL);
     ini_set('display_errors','On');
