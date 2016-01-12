@@ -12,6 +12,7 @@ $twig = new Twig_Environment($loader, array(
     'auto_reload' => true,
     'debug' => $debug?true:false
 ));
+$router = new \Klein\Klein();
 if($debug){
     $twig->addExtension(new Twig_Extension_Debug());
 }
@@ -34,15 +35,10 @@ $app['controller.data'] = function ($app) {
     return $controller;
 };
 
-//Router
-$route = $_SERVER['REQUEST_URI'];
-switch($route){
-    case '/update':
-        if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['people'])){
-            return $app['controller.data']->saveData($_POST['people']);
-        }
-    break;
-    default:
-        return $app['controller.data']->index();
-}
-
+$router->respond('GET', '/', function() use ($app) {
+    return $app['controller.data']->index();
+});
+$router->respond('POST', '/update', function () use ($app) {
+    return $app['controller.data']->saveData($_POST['people']);
+});
+$router->dispatch();

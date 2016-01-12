@@ -27,14 +27,12 @@ class DataController
 
     public function index(){
         $dataFromFile = $this->storageService->getData();
-        echo $this->app['twig']->render('index.twig.html', array('data' => $dataFromFile));
-        return true;
+        return $this->app['twig']->render('index.twig.html', array('data' => $dataFromFile));
     }
     public function saveData($data){
 
         if($this->storageService->saveData($data)){
-            echo 'data saved<br>';
-            echo '<a href="/">go back</a>';
+            return 'data saved<br> <a href="/">go back</a>';
         };
         return 'data error';
     }
