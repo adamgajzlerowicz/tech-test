@@ -7,11 +7,26 @@
 </head>
 
 <body>
-<a href="/">home</a>
+
 {% block content %}{% endblock %}
 
+
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="js/scripts.js"></script>
+<script>
+    //create prototype for an additional table line
+    function getPrototype(i){
+        return  '<tr><td><input type="text" name="people['+i+'][firstname]" value=""></td><td><input type="text" name="people['+i+'][surname]" value=""></td></tr>';
+    }
+    $(document).ready(function(){
+        //on click of "add" button use the prototype to create another table line
+        $('#add_row').click(function(e){
+            e.preventDefault();
+            var total = $('tr').length-1;
+            $('tr').parent().append(getPrototype(total));
+        })
+    })
+</script>
+
 </body>
 </html>
 

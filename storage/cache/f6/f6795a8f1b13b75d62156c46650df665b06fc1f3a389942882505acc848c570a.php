@@ -7,69 +7,73 @@ class __TwigTemplate_8fa99d63cedaa169473837d2f01265f3c4e0e3d9c032db23211755a7b82
     {
         parent::__construct($env);
 
-        $this->parent = false;
-
+        // line 1
+        $this->parent = $this->loadTemplate("base.twig.html", "index.twig.html", 1);
         $this->blocks = array(
+            'content' => array($this, 'block_content'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "base.twig.html";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
-        echo "<!doctype html>
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
 
-<html lang=\"en\">
-<head>
-    <title>Adam</title>
-    <meta charset=\"utf-8\">
-</head>
-
-<body>
-
-<form action=\"update\" method=\"post\">
+    // line 2
+    public function block_content($context, array $blocks = array())
+    {
+        // line 3
+        echo "<form action=\"update\" method=\"post\">
     <table>
         <tr>
             <th>First name</th>
             <th>Last name</th>
         </tr>
+
         ";
-        // line 17
+        // line 10
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["data"]) ? $context["data"] : null));
         foreach ($context['_seq'] as $context["key"] => $context["item"]) {
-            // line 18
+            // line 11
             echo "        <tr>
             <td><input type=\"text\" name=\"people[";
-            // line 19
+            // line 12
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
             echo "][firstname]\" value=\"";
             echo twig_escape_filter($this->env, $this->getAttribute($context["item"], "firstname", array()));
             echo "\" /></td>
             <td><input type=\"text\" name=\"people[";
-            // line 20
+            // line 13
             echo twig_escape_filter($this->env, $context["key"], "html", null, true);
             echo "][surname]\" value=\"";
             echo twig_escape_filter($this->env, $this->getAttribute($context["item"], "surname", array()));
             echo "\" /></td>
+            <td><a href=\"/show/";
+            // line 14
+            echo twig_escape_filter($this->env, $context["key"], "html", null, true);
+            echo "\">Show</a></td>
         </tr>
+
         ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 23
+        // line 18
         echo "
     </table>
-    <a href=\"#\" id=\"add_row\">Add row</a>
-    <input type=\"submit\" value=\"OK\" />
+
+    <input type=\"button\" value=\"Add row\" id=\"add_row\">
+    <input type=\"submit\" value=\"Save\" />
+    <a href=\"/\">home</a>
+
 </form>
-
-
-<script src=\"https://code.jquery.com/jquery-1.12.0.min.js\"></script>
-<script src=\"js/scripts.js\"></script>
-</body>
-</html>
-
 ";
     }
 
@@ -85,41 +89,32 @@ class __TwigTemplate_8fa99d63cedaa169473837d2f01265f3c4e0e3d9c032db23211755a7b82
 
     public function getDebugInfo()
     {
-        return array (  61 => 23,  50 => 20,  44 => 19,  41 => 18,  37 => 17,  19 => 1,);
+        return array (  69 => 18,  59 => 14,  53 => 13,  47 => 12,  44 => 11,  40 => 10,  31 => 3,  28 => 2,  11 => 1,);
     }
 }
-/* <!doctype html>*/
-/* */
-/* <html lang="en">*/
-/* <head>*/
-/*     <title>Adam</title>*/
-/*     <meta charset="utf-8">*/
-/* </head>*/
-/* */
-/* <body>*/
-/* */
+/* {% extends "base.twig.html" %}*/
+/* {% block content %}*/
 /* <form action="update" method="post">*/
 /*     <table>*/
 /*         <tr>*/
 /*             <th>First name</th>*/
 /*             <th>Last name</th>*/
 /*         </tr>*/
+/* */
 /*         {% for key,item in data %}*/
 /*         <tr>*/
 /*             <td><input type="text" name="people[{{key}}][firstname]" value="{{item.firstname|e}}" /></td>*/
 /*             <td><input type="text" name="people[{{key}}][surname]" value="{{item.surname|e}}" /></td>*/
+/*             <td><a href="/show/{{key}}">Show</a></td>*/
 /*         </tr>*/
+/* */
 /*         {% endfor %}*/
 /* */
 /*     </table>*/
-/*     <a href="#" id="add_row">Add row</a>*/
-/*     <input type="submit" value="OK" />*/
+/* */
+/*     <input type="button" value="Add row" id="add_row">*/
+/*     <input type="submit" value="Save" />*/
+/*     <a href="/">home</a>*/
+/* */
 /* </form>*/
-/* */
-/* */
-/* <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>*/
-/* <script src="js/scripts.js"></script>*/
-/* </body>*/
-/* </html>*/
-/* */
-/* */
+/* {% endblock %}*/
