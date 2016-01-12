@@ -18,13 +18,13 @@ Application supports:
 
 * updating data
 
-* dynamic rows adding
+* adding rows
 
-* displaying single record (along with all data)
+* displaying single record
 
 ## Technologies used
 
-* JSON file type for data storage
+* JSON file type - for data storage
  
 * Pimple - as dependency injection container
 
@@ -38,19 +38,19 @@ Application supports:
 
 ## Application architecture
 
-Application has two entry points: index.php and index_dev.php where index_dev.php can be only used from localhost for debugging purposes. 
-In app.php file, the application builds DI container, by providing it with services and is fulfilling their requirements. 
-Application is build using MVC pattern, where M is not present as database is not present and data is simple. 
-DataController has injectable storage service. If application's requirements have changed, this service can be replaced with something different. For example database connection. 
+Application has two entry points: index.php and index_dev.php where index_dev.php can be only used only from localhost, for debugging purposes. 
+In app.php file, the application builds a DI container, by providing it with services and is fulfilling their requirements. 
+Application is built using MVC pattern.
+DataController has injectable storage service. If application's requirements have changed, this service can be replaced with a different one. For example service providing a database connection. 
 App.php contains a simple routing mechanism that responds to the requests, by queering an adequate Controller.
  
-From main page of the application, users may preview all of the data. They can also update any selected rows and save data to the database. 
-To add an additional row can be added using a button provided on the page. This will use the prototype method and add an additional row to the table.
-From the table there is also a link to display a single record. As the application is small, the main data table remains on the screen on all routes.
+From main page of the application, users may view all stored data. They can also update any selected rows and save modified data to the database. 
+To add an additional row, user presses a button provided on the page. This uses a prototype method and adds an additional row in the table.
+Next to each row is a link to display a single record. As the application is small, the main data table remains on the screen on all routes.
 
 ## Valued principles included: 
 
-* security: as there is no database present, data doesn't have to be checked from the sql injection angle. Data is stored in the JSON file in its original form. When shown on the front end, Twig shows all data escaped, making the application secure. 
+* security: data, when shown on the front end, is escaped by twig, making application secure. As there is no database present, data doesn't have to be checked for sql injection. Data is stored in JSON file, in its original form. Source folder of the application (src) is moved outside of public folder, adding an additional security layer. 
 
 * performance: application has really small footprint. Pimple is a great tool that allow each class to be shared wherever required in the application, saving memory.
 
@@ -58,7 +58,7 @@ From the table there is also a link to display a single record. As the applicati
 
 * testability: application is PHPUnit testable.
 
-* scalability: application is based on composer, which allows an ability to add any required packages. Having separation of concerns allows to add more classes to meet any new requirements. Application uses dependency injection, which allows swapping components with different ones.
+* scalability: application is based on composer dependency manager, which allows addition any required packages. Also, having separation of concerns allows to add more classes to meet any new requirements. Application uses dependency injection, which allows components swapping with different ones.
 
 ## Testing
 
