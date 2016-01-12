@@ -11,8 +11,8 @@ class DataControllerTest extends PHPUnit_Framework_TestCase
 
     public function testIndex()
     {
-//        $resp = $this->guzzle->request('GET', 'http://localhost:8888/index.php/show/3');
-//        echo($resp->getStatusCode());
+        $resp = $this->guzzle->request('GET', 'http://localhost:8888');
+        echo($resp->getStatusCode());
 
 //        $this->assertEquals('Ibw\JobeetBundle\Controller\JobController::indexAction', $client->getRequest()->attributes->get('_controller'));
 //        $this->assertEquals(200 , $client->getResponse()->getStatusCode());

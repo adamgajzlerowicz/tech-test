@@ -50,7 +50,7 @@ From the table there is also a link to display a single record. As the applicati
 
 ## Valued principles included: 
 
-* security: as there is no database present, data doesn't have to be checked on the sql injection angle. Data is stored to the JSON file in the original form, but when shown on the front end, Twig shows all data escaped. 
+* security: as there is no database present, data doesn't have to be checked from the sql injection angle. Data is stored in the JSON file in its original form. When shown on the front end, Twig shows all data escaped, making the application secure. 
 
 * performance: application has really small footprint. Pimple is a great tool that allow each class to be shared wherever required in the application, saving memory.
 
