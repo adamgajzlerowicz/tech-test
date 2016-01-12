@@ -1,7 +1,7 @@
 <?php
-namespace Application\Controllers;
+namespace Controllers;
 
-use Application\Services\StorageService;
+use Services\StorageService;
 
 class DataController
 {

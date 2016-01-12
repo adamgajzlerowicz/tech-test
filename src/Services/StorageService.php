@@ -1,5 +1,5 @@
 <?php
-namespace Application\Services;
+namespace Services;
 
 class StorageService
 {
