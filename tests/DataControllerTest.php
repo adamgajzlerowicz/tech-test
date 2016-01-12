@@ -9,14 +9,11 @@ class DataControllerTest extends PHPUnit_Framework_TestCase
         $this->guzzle = new GuzzleHttp\Client();
     }
 
-    public function testIndex()
+    public function testRoutes()
     {
-        $resp = $this->guzzle->request('GET', 'http://localhost:8888');
-        echo($resp->getStatusCode());
-
-//        $this->assertEquals('Ibw\JobeetBundle\Controller\JobController::indexAction', $client->getRequest()->attributes->get('_controller'));
-//        $this->assertEquals(200 , $client->getResponse()->getStatusCode());
-//        $this->assertEquals(0, $crawler->filter('.jobs td.position:contains("Expired")')->count());
+        //perform a functional test
+        $resp = $this->guzzle->request('GET', 'http://localhost:8888/show/3');
+        $this->assertEquals($resp->getStatusCode(), 200);
     }
 }
 

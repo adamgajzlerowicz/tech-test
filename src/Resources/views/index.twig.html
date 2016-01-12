@@ -1,6 +1,6 @@
 {% extends "base.twig.html" %}
 {% block content %}
-<form action="update" method="post">
+<form action="http://localhost:8888/update" method="post">
     <table>
         <tr>
             <th>First name</th>
@@ -11,7 +11,7 @@
         <tr>
             <td><input type="text" name="people[{{key}}][firstname]" value="{{item.firstname|e}}" /></td>
             <td><input type="text" name="people[{{key}}][surname]" value="{{item.surname|e}}" /></td>
-            <td><a href="/show/{{key}}">Show</a></td>
+            <td><a href="http://localhost:8888/show/{{key}}">Show</a></td>
         </tr>
 
         {% endfor %}
@@ -20,7 +20,7 @@
 
     <input type="button" value="Add row" id="add_row">
     <input type="submit" value="Save" />
-    <a href="/">home</a>
+    <a href="http://localhost:8888">home</a>
 
 </form>
 {% endblock %}
