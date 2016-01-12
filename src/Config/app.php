@@ -39,12 +39,13 @@ $app['controller.data'] = function () use ($app) {
 
 //Routes
 
-$router->respond('GET', '/', function () use ($app) {
-    return $app['controller.data']->index();
-});
+
 $router->respond('POST', '/update', function () use ($app) {
     return $app['controller.data']->saveData($_POST['people']);
 });
 $router->respond('GET', '/show/[:id]', function ($request) use ($app) {
     return $app['controller.data']->showAction($request->id);
+});
+$router->respond('GET', '/', function () use ($app) {
+    return $app['controller.data']->index();
 });
