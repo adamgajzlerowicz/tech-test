@@ -4,25 +4,38 @@ Use Services\StorageService;
 
 class StorageServiceTest extends PHPUnit_Framework_TestCase{
 
+    protected $service;
+    public function __construct()
+    {
+        $this->service = new StorageService();
+        $this->service->setStorageName('storage/storageTest.json');
+
+    }
+
     public function testLoadData(){
-        $service = new StorageService();
-        $service->setStorageName('storage/storageTest.json');
+        $service = $this->service;
         $data = $service->getData();
-        $this->assertEquals(1, 1);
+        //data returned from the service should always be an array
         $this->assertInternalType('array',$data);
     }
     public function testLoadAndSave(){
-        $service = new Services\StorageService();
-        $service->setStorageName('storage/storageTest.json');
+        $service = $this->service;
         $data = $service->getData();
+        //data returned from the service should always be an array
+        $this->assertInternalType('array',$data);
         $dataSize = count($data);
-        $randomNumber = rand(0,$dataSize);
+
+        //randomise data in the array
+        $randomNumber = rand(0,$dataSize-1);
         $randomName = uniqid();
         $randomSecondName = uniqid();
         $data[$randomNumber]->firstname = $randomName;
         $data[$randomNumber]->surname = $randomSecondName;
-        $service->saveData($data);
+        //if data is saved successfully, service should return true
+        $response = $service->saveData($data);
+        $this->assertTrue($response);
         $restoredData = $service->getData();
+        //data returned from the service should always be an array
         $this->assertInternalType('array',$restoredData);
         $this->assertEquals($restoredData, $data);
     }

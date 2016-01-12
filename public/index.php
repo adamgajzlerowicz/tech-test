@@ -7,6 +7,7 @@ ini_set('log_errors', 'On');
 $debug = false;
 
 //build application
+
 require_once '../vendor/autoload.php';
 require_once '../src/Config/app.php';
 

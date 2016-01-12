@@ -16,7 +16,7 @@ error_reporting(E_ALL);
 ini_set('display_errors','On');
 $debug = true;
 require_once '../vendor/autoload.php';
-include_once '../src/Config/app.php';
+require_once '../src/Config/app.php';
 
 
 //execute route

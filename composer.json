@@ -4,7 +4,8 @@
         "twig/twig": "^1.23",
         "pimple/pimple": "^3.0",
         "klein/klein": "^2.1",
-        "phpunit/phpunit": "^4.8"
+        "phpunit/phpunit": "^4.8",
+        "guzzlehttp/guzzle": "^6.1"
     },
     "license": "MIT",
     "authors": [
