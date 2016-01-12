@@ -3,16 +3,7 @@ namespace Application\Services;
 
 class StorageService
 {
-    protected $app;
     protected $storageName;
-    /**
-     * @param mixed $app
-     */
-    public function setApp($app)
-    {
-        $this->app = $app;
-    }
-
     /**
      * @param mixed $storageName
      */

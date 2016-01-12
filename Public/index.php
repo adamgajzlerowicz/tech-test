@@ -24,7 +24,6 @@ $app['twig'] = $twig;
 //Service providers
 $app['service.storage'] = function ($app) {
     $service = new Services\StorageService();
-    $service->setApp($app);
     $service->setStorageName($app['config.storage']);
     return $service;
 };
