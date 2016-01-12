@@ -1,7 +1,7 @@
 <?php
 
 /* index.twig.html */
-class __TwigTemplate_20ec85769ca241172d30eb1d5bdecb749ee7f9a050fc32273b834796fac41d08 extends Twig_Template
+class __TwigTemplate_8fa99d63cedaa169473837d2f01265f3c4e0e3d9c032db23211755a7b827bf9d extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -16,11 +16,11 @@ class __TwigTemplate_20ec85769ca241172d30eb1d5bdecb749ee7f9a050fc32273b834796fac
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "
-<!doctype html>
+        echo "<!doctype html>
 
 <html lang=\"en\">
 <head>
+    <title>Adam</title>
     <meta charset=\"utf-8\">
 </head>
 
@@ -88,11 +88,11 @@ class __TwigTemplate_20ec85769ca241172d30eb1d5bdecb749ee7f9a050fc32273b834796fac
         return array (  61 => 23,  50 => 20,  44 => 19,  41 => 18,  37 => 17,  19 => 1,);
     }
 }
-/* */
 /* <!doctype html>*/
 /* */
 /* <html lang="en">*/
 /* <head>*/
+/*     <title>Adam</title>*/
 /*     <meta charset="utf-8">*/
 /* </head>*/
 /* */

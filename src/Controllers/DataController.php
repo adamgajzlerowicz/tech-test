@@ -25,15 +25,24 @@ class DataController
         $this->storageService = $StorageService;
     }
 
+    private function getData(){
+        return $this->storageService->getData();
+    }
+
     public function index(){
-        $dataFromFile = $this->storageService->getData();
+        $dataFromFile = $this->getData();
         return $this->app['twig']->render('index.twig.html', array('data' => $dataFromFile));
     }
-    public function saveData($data){
 
+    public function saveData($data){
         if($this->storageService->saveData($data)){
-            return 'data saved<br> <a href="/">go back</a>';
+            return '<p class="info">data saved</p>';
         };
-        return 'data error';
+        return 'Error saving the data';
+    }
+
+    public function showAction($id){
+        $data = $this->getData();
+        return $this->app['twig']->render('show.twig.html', array('item' => $data[$id],'id'=>$id));
     }
 }

@@ -1,3 +1,4 @@
 <?php
-
-$DBFile = __DIR__.'/../Storage/storage.json';
+$config = array(
+    'DBFile' => __DIR__.'/storage/storage.json'
+);

@@ -1,13 +1,5 @@
-<!doctype html>
-
-<html lang="en">
-<head>
-    <title>Adam</title>
-    <meta charset="utf-8">
-</head>
-
-<body>
-
+{% extends "base.twig.html" %}
+{% block content %}
 <form action="update" method="post">
     <table>
         <tr>
@@ -18,6 +10,7 @@
         <tr>
             <td><input type="text" name="people[{{key}}][firstname]" value="{{item.firstname|e}}" /></td>
             <td><input type="text" name="people[{{key}}][surname]" value="{{item.surname|e}}" /></td>
+            <td><a href="/show/{{key}}">Show</a></td>
         </tr>
         {% endfor %}
 
@@ -25,10 +18,4 @@
     <a href="#" id="add_row">Add row</a>
     <input type="submit" value="OK" />
 </form>
-
-
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="js/scripts.js"></script>
-</body>
-</html>
-
+{% endblock %}
