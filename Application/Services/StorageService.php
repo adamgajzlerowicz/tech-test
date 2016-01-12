@@ -4,6 +4,7 @@ namespace Application\Services;
 class StorageService
 {
     protected $app;
+    protected $storageName;
     /**
      * @param mixed $app
      */
@@ -12,12 +13,25 @@ class StorageService
         $this->app = $app;
     }
 
-    public function saveData(){
-
+    /**
+     * @param mixed $storageName
+     */
+    public function setStorageName($storageName)
+    {
+        $this->storageName = $storageName;
     }
 
     public function getData(){
-        $filePath = $this->app['config.storage'];
-        return file_get_contents();
+        $data = file_get_contents($this->storageName);
+        return json_decode($data);
     }
+
+    public function saveData($data){
+        $data = json_encode($data);
+        if(file_put_contents($this->storageName, $data)){
+            return true;
+        }
+        return false;
+    }
+
 }

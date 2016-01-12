@@ -9,15 +9,23 @@ require_once '../Application/config.php';
 $loader = new Twig_Loader_Filesystem('../Resources/views');
 $twig = new Twig_Environment($loader, array(
     'cache' => '../Storage/cache',
-    'auto_reload' => true
+    'auto_reload' => true,
+    'debug' => $debug?true:false
 ));
-
+if($debug){
+    $twig->addExtension(new Twig_Extension_Debug());
+}
 $app = new Container();
-$app['config.storage'] = $DBFile;
 
+//Environment variables
+$app['config.storage'] = $DBFile;
+$app['twig'] = $twig;
+
+//Service providers
 $app['service.storage'] = function ($app) {
     $service = new Services\StorageService();
     $service->setApp($app);
+    $service->setStorageName($app['config.storage']);
     return $service;
 };
 $app['controller.data'] = function ($app) {
@@ -26,17 +34,16 @@ $app['controller.data'] = function ($app) {
     $controller->setStorageService($app['service.storage']);
     return $controller;
 };
-$controller = new Controllers\DataController();
-$route = $_SERVER['REQUEST_URI'];
 
+//Router
+$route = $_SERVER['REQUEST_URI'];
 switch($route){
-    case '/':
-        return $app['controller.data']->index();
-        break;
     case '/update':
-        if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['data'])){
-            return $app['controller.data']->saveData($_POST['data']);
+        if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['people'])){
+            return $app['controller.data']->saveData($_POST['people']);
         }
+    break;
+    default:
+        return $app['controller.data']->index();
 }
 
-//echo $twig->render('index.twig.html', array('name' => 'Fabien'));

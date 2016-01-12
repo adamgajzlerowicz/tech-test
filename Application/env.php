@@ -1,4 +1,4 @@
 <?php
 
 $debug = true;
-$DBFile = __DIR__.'/../storage/storage.db';
+$DBFile = __DIR__.'/../Storage/storage.json';
