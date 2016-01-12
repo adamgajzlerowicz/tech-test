@@ -4,6 +4,7 @@ function getPrototype(i){
 $(document).ready(function(){
     $('#add_row').click(function(e){
         e.preventDefault();
-        alert('s')
+        var total = $('tr').length-1;
+        $('tr').parent().append(getPrototype(total))
     })
 })
