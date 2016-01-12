@@ -54,12 +54,12 @@ From the table there is also a link to display a single record. As the applicati
 
 * performance: application has really small footprint. Pimple is a great tool that allow each class to be shared wherever required in the application, saving memory.
 
-* readability and simplicity: application been build based no MVC pattern is separating the concerns between different application parts. A correct structure of folders is retained, making it easy to find classes, and helping to understand what they do.
+* readability and simplicity: application been build based on MVC pattern is separating the concerns between different application parts. A correct structure of folders is retained, making it easy to find classes, and helping to understand what they do.
 
 * testability: application is PHPUnit testable.
 
-* scalability: application is based on composer, which allows an ability to add any required packages. Having separation of concerns allows to add more classes to meet any new requirements. Application uses dependency injection, which allows swapping components with differnt ones.
+* scalability: application is based on composer, which allows an ability to add any required packages. Having separation of concerns allows to add more classes to meet any new requirements. Application uses dependency injection, which allows swapping components with different ones.
 
 ## Testing
 
-To run tests make sure that the application is running on localhost on port 8888 then run from the root directory of application run `php vendor/bin/phpunit tests`
+To run tests make sure that the application is running on localhost on port 8888 then, from the root directory run `php vendor/bin/phpunit tests`
