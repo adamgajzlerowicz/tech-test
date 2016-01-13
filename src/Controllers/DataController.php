@@ -1,16 +1,20 @@
 <?php
 namespace Controllers;
 
-use SebastianBergmann\Comparator\ArrayComparator;
 use Services\StorageService;
+
 /**
+ * Class DataController
  * Data Controller will take requests and use provided storage service to save the data.
  * Storage service can be replaced with, for example a database mapper.
+ * @package Controllers
  */
 class DataController
 {
     /**
      * Give access to the app DI container
+     *
+     * @var
      */
     protected $app;
     /** @var StorageService $storageService */
@@ -34,6 +38,8 @@ class DataController
 
     /**
      * Using storage service return the data, abstracted as is used across the class
+     *
+     * @return array
      */
     private function getData(){
         return $this->storageService->getData();
@@ -68,6 +74,7 @@ class DataController
     /**
      * Method returns a particular entry.
      * As relational database is not available, it gets all data from storage, and then returns only requested object
+     *
      * @param int $id
      * @return mixed
      */

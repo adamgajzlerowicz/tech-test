@@ -10,7 +10,7 @@ use Controllers\DataController;
 use Services\StorageService;
 use Klein\Klein;
 
-
+$config = array();
 require_once '../env.php';
 $debug = $config['debug'];
 /*
@@ -67,7 +67,7 @@ $router->respond('POST', '/update', function () use ($app) {
 $router->respond('GET', '/show/[:id]', function ($request) use ($app) {
     return $app['controller.data']->showAction($request->id);
 });
-//in addition always display this route:
+//in addition always display the following route:
 $router->respond(function () use ($app) {
     return $app['controller.data']->index();
 });
