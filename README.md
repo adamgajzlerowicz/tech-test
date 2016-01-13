@@ -6,7 +6,7 @@
 
 * run `composer install`
 
-* make storage directory writable `chmod 777 -R storage`
+* make storage directory writable `chmod 755 -R storage`
 
 * run the server with `php -S localhost:8888` from inside of public folder
 

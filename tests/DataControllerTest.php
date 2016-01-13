@@ -11,7 +11,7 @@ class DataControllerTest extends PHPUnit_Framework_TestCase
 
     public function testRoutes()
     {
-        //perform a functional test
+        //perform an end to end test
         $resp = $this->guzzle->request('GET', 'http://localhost:8888/show/3');
         $this->assertEquals($resp->getStatusCode(), 200);
     }

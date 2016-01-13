@@ -1,0 +1,82 @@
+
+<h4>Showing record: 3</h4>
+<div>
+    <p>First name: Penny</p>
+    <p>Last Name: Cuoco</p>
+</div>
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>Adam</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+<form action="http://localhost:8888/update" method="post">
+    <table>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+        </tr>
+
+                <tr>
+            <td><input type="text" name="people[0][firstname]" value="Sheldon" /></td>
+            <td><input type="text" name="people[0][surname]" value="Cooper" /></td>
+            <td><a href="http://localhost:8888/show/0">Show</a></td>
+        </tr>
+
+                <tr>
+            <td><input type="text" name="people[1][firstname]" value="Raj" /></td>
+            <td><input type="text" name="people[1][surname]" value="Koothrapali" /></td>
+            <td><a href="http://localhost:8888/show/1">Show</a></td>
+        </tr>
+
+                <tr>
+            <td><input type="text" name="people[2][firstname]" value="Howard" /></td>
+            <td><input type="text" name="people[2][surname]" value="Wolowitz" /></td>
+            <td><a href="http://localhost:8888/show/2">Show</a></td>
+        </tr>
+
+                <tr>
+            <td><input type="text" name="people[3][firstname]" value="Penny" /></td>
+            <td><input type="text" name="people[3][surname]" value="Cuoco" /></td>
+            <td><a href="http://localhost:8888/show/3">Show</a></td>
+        </tr>
+
+                <tr>
+            <td><input type="text" name="people[4][firstname]" value="Alex" /></td>
+            <td><input type="text" name="people[4][surname]" value="Jensen" /></td>
+            <td><a href="http://localhost:8888/show/4">Show</a></td>
+        </tr>
+
+        
+    </table>
+
+    <input type="button" value="Add row" id="add_row">
+    <input type="submit" value="Save" />
+    <a href="http://localhost:8888">home</a>
+
+</form>
+
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>
+    //create prototype for an additional table line
+    function getPrototype(i){
+        return  '<tr><td><input type="text" name="people['+i+'][firstname]" value=""></td><td><input type="text" name="people['+i+'][surname]" value=""></td></tr>';
+    }
+    $(document).ready(function(){
+        //on click of "add" button use the prototype to create another table line
+        $('#add_row').click(function(e){
+            e.preventDefault();
+            var total = $('tr').length-1;
+            $('tr').parent().append(getPrototype(total));
+        })
+    })
+</script>
+
+</body>
+</html>
+
